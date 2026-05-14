@@ -33,3 +33,6 @@ pnpm-debug.log*
 /image.png
 /image copy.png
 
+# Claude Design 핸드오프 번들 (작업 참조용)
+/design-fetch/
+
