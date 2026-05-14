@@ -56,13 +56,14 @@
 
 ## Phase 4. 배포 및 후속
 
-- [ ] GitHub repo 생성 및 push
-- [ ] Vercel 연동 및 배포
-- [ ] 도메인 연결 (DNS 설정)
-- [ ] HTTPS 확인
-- [ ] OG 태그 미리보기 검증 (Twitter Card Validator 등)
+- [x] GitHub repo 생성 및 push (https://github.com/jeonwoochul0515-cell/ydin)
+- [x] Cloudflare Pages 배포 (https://ydin-7sa.pages.dev)
+- [x] HTTPS 확인 (Cloudflare 기본 제공)
+- [ ] 도메인 연결 (DNS 설정) — 사용자 도메인 보유 시
+- [ ] OG 태그 미리보기 검증
 - [ ] 네이버 서치어드바이저 등록
 - [ ] 구글 서치콘솔 등록
-- [ ] 카카오톡 채널 링크 동작 확인
+- [ ] 카카오톡 채널 URL 수령 후 Hero·Contact 링크 추가
+- [ ] 시공 사진 수령 후 Portfolio 카드 이미지로 교체
 - [ ] 모바일·데스크톱 실기기 점검
 - [ ] 후속 안내문서 작성 (네이버 플레이스 등록, ECIC 등록 등)
