@@ -97,7 +97,7 @@ export function Certifications() {
         <div className="cert-hero-row">
           <article className="cert-hero">
             <div className="cert-hero-media">
-              <img src={HERO.img} alt={HERO.h} loading="lazy" />
+              <img src={HERO.img} alt={HERO.h} />
               <span className="cert-tag">{HERO.cat}</span>
             </div>
             <div className="cert-hero-body">
@@ -110,7 +110,7 @@ export function Certifications() {
 
           <article className="cert-license">
             <div className="cert-license-media">
-              <img src={LICENSE.img} alt={LICENSE.h} loading="lazy" />
+              <img src={LICENSE.img} alt={LICENSE.h} />
             </div>
             <span className="cert-tag inv">{LICENSE.cat}</span>
             <div className="cert-license-body">
@@ -126,7 +126,7 @@ export function Certifications() {
           {SUPPORTING.map((c) => (
             <article className="cert-sup" key={c.h}>
               <div className="cert-sup-media">
-                <img src={c.img} alt={c.h} loading="lazy" />
+                <img src={c.img} alt={c.h} />
                 <span className="cert-tag sm">{c.cat}</span>
               </div>
               <div className="cert-sup-body">
