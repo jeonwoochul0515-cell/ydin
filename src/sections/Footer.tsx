@@ -1,57 +1,69 @@
-// 푸터 — 다크 + 그라데이션 separator
+// 푸터 — 사업자 정보 + 사이트 맵 + 메가 워드마크
 import logo from "../assets/logo.png";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-white/10 py-14">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent"
-      />
-      <div className="mx-auto max-w-6xl px-5">
-        <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
-          <div className="flex items-start gap-3">
-            <img
-              src={logo}
-              alt="(주)와이디인"
-              className="h-11 w-11 rounded-lg object-cover ring-1 ring-white/10"
-            />
-            <div>
-              <div className="text-base font-extrabold">
-                <span className="text-grad-logo">(주)와이디인</span>
-              </div>
-              <div className="mt-0.5 text-xs text-white/45">
-                YD In Electrician Co., Ltd.
-              </div>
-            </div>
+    <footer>
+      <div className="wrap">
+        <div className="foot-top">
+          <div>
+            <a href="#home" className="logo" style={{ marginBottom: 24 }}>
+              <span className="mark">
+                <img src={logo} alt="(주)와이디인 로고" />
+              </span>
+              <span className="name">
+                <span className="ko" style={{ color: "var(--paper)" }}>
+                  (주)와이디인
+                </span>
+                <span className="en">YD IN ELECTRICIAN CO.,LTD.</span>
+              </span>
+            </a>
+            <p
+              style={{
+                fontSize: 13.5,
+                color: "rgba(241,232,216,.7)",
+                lineHeight: 1.65,
+                maxWidth: 320,
+                marginTop: 16,
+              }}
+            >
+              전기로 연결되는 모든 공간의 안전한 시공 — 부산을 거점으로,
+              (주)와이디인.
+            </p>
           </div>
-
-          <dl className="grid grid-cols-2 gap-x-10 gap-y-3 text-xs text-white/65 sm:text-sm">
-            <div>
-              <dt className="font-semibold text-white/40">대표이사</dt>
-              <dd>안용득</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-white/40">사업자등록번호</dt>
-              <dd>449-86-02736</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-white/40">전화</dt>
-              <dd>051-895-5505</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-white/40">팩스</dt>
-              <dd>051-895-5504</dd>
-            </div>
-            <div className="col-span-2">
-              <dt className="font-semibold text-white/40">주소</dt>
-              <dd>부산광역시 부산진구 가야대로408번길 27 (개금동)</dd>
-            </div>
-          </dl>
+          <div>
+            <h6>사업영역 · Services</h6>
+            <a href="#services">전기공사</a>
+            <a href="#services">전기자재</a>
+            <a href="#services">조명</a>
+            <a href="#services">실내건축</a>
+          </div>
+          <div>
+            <h6>회사 · Company</h6>
+            <a href="#about">회사소개</a>
+            <a href="#process">시공절차</a>
+            <a href="#projects">시공안내</a>
+            <a href="#contact">견적문의</a>
+          </div>
+          <div>
+            <h6>연락 · Contact</h6>
+            <a href="tel:051-895-5505">051-895-5505</a>
+            <a href="tel:010-9303-9400">010-9303-9400</a>
+            <a href="mailto:yd9303@naver.com">yd9303@naver.com</a>
+            <p>부산진구 가야대로408번길 27</p>
+            <p>평일 09:00 – 18:00</p>
+          </div>
         </div>
+        <div className="foot-bot">
+          <span>© {new Date().getFullYear()} (주)와이디인. All rights reserved.</span>
+          <span>사업자 449-86-02736 · 부산 부산진구</span>
+          <span>SITE — REDESIGN v2 / 2026</span>
+        </div>
+      </div>
 
-        <div className="mt-12 border-t border-white/5 pt-6 text-[11px] text-white/35">
-          © {new Date().getFullYear()} (주)와이디인. All rights reserved.
+      <div className="mega">
+        <div className="word">
+          YDI<span className="o">N</span>
         </div>
       </div>
     </footer>

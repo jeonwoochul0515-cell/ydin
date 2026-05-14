@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1440" />
+<title>(주)와이디인 · YD In electrician Co., Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* logo-derived palette */
+    --ink:        #100d0c;     /* deep base, like the logo card background */
+    --ink-2:      #1a1614;
+    --ink-3:      #25201d;
+    --paper:      #efe9e1;     /* warm paper */
+    --paper-dim:  #c9c1b6;
+    --rule:       rgba(239,233,225,.12);
+    --rule-2:     rgba(239,233,225,.06);
+
+    --orange:     #e85d2c;     /* the D */
+    --orange-2:   #c43f15;
+    --blue:       #2c4aa0;     /* deep Y */
+    --indigo:     #5b4e96;     /* figure body */
+    --rust:       #8a3a1a;
+
+    --serif: "Noto Serif KR","Noto Sans KR",serif;
+    --sans:  "Noto Sans KR","Helvetica Neue",Arial,sans-serif;
+    --mono:  "IBM Plex Mono",ui-monospace,monospace;
+    --display:"Bebas Neue","Noto Sans KR",sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--ink);color:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  body{
+    /* grainy logo-card texture */
+    background-image:
+      radial-gradient(ellipse 1200px 600px at 20% -10%, rgba(91,78,150,.18), transparent 60%),
+      radial-gradient(ellipse 900px 500px at 100% 30%, rgba(232,93,44,.08), transparent 60%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.92  0 0 0 0 0.86  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-color: var(--ink);
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;background:none;border:0;color:inherit;cursor:pointer}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 56px}
+
+  /* ============= TOP STRIP ============= */
+  .top{
+    border-bottom:1px solid var(--rule);
+    font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--paper-dim);
+  }
+  .top .wrap{display:flex;justify-content:space-between;align-items:center;height:36px}
+  .top .left{display:flex;gap:24px}
+  .top .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block;vertical-align:middle;margin-right:8px;box-shadow:0 0 0 3px rgba(232,93,44,.18)}
+
+  /* ============= NAV ============= */
+  nav.bar{position:sticky;top:0;z-index:50;background:rgba(16,13,12,.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+  nav .wrap{display:flex;align-items:center;height:84px;gap:48px}
+  .logo{display:flex;align-items:center;gap:14px}
+  .logo .mark{width:46px;height:46px;position:relative;flex:none}
+  .logo .name{line-height:1}
+  .logo .name .ko{font-weight:900;font-size:20px;letter-spacing:-.02em}
+  .logo .name .en{font-family:var(--mono);font-size:10px;color:var(--orange);letter-spacing:.14em;margin-top:6px;text-transform:uppercase}
+  .nav-links{display:flex;gap:40px;margin-left:48px}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--paper);opacity:.85;position:relative;padding:6px 0}
+  .nav-links a:hover{opacity:1}
+  .nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--orange)}
+  .cta-call{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .cta-call .label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--paper-dim);text-transform:uppercase}
+  .cta-call .num{font-family:var(--display);font-size:28px;letter-spacing:.04em;color:var(--paper)}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:13px 22px;border:1px solid var(--paper);border-radius:999px;
+    font-size:13px;font-weight:700;letter-spacing:.04em;
+    transition:.2s;
+  }
+  .cta-btn:hover{background:var(--paper);color:var(--ink)}
+  .cta-btn .arr{width:14px;height:14px;display:inline-block}
+
+  /* ============= LOGO MARK SVG (original interpretation) ============= */
+  /* Original abstracted mark — NOT a copy of the supplied logo; geometric form
+     that echoes the upward-figure motif using brand colors. */
+  .mark svg{width:100%;height:100%}
+
+  /* ============= HERO ============= */
+  .hero{position:relative;padding:80px 0 120px;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:end}
+  .eyebrow{display:inline-flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange)}
+  .eyebrow::before{content:"";width:36px;height:1px;background:var(--orange)}
+  h1.display{
+    font-family:var(--sans);font-weight:900;
+    font-size:104px;line-height:.92;letter-spacing:-.035em;
+    margin:32px 0 28px;
+  }
+  h1.display .o{color:var(--orange)}
+  h1.display .b{color:var(--indigo);font-style:italic;font-family:var(--serif);font-weight:700}
+  h1.display .stroke{
+    -webkit-text-stroke:1.5px var(--paper);color:transparent;
+  }
+  .lede{font-size:18px;line-height:1.6;color:var(--paper-dim);max-width:520px}
+  .hero-actions{display:flex;gap:16px;margin-top:40px;align-items:center}
+  .btn-primary{
+    background:var(--orange);color:#fff;padding:18px 28px;border-radius:999px;
+    font-weight:700;font-size:14px;letter-spacing:.04em;display:inline-flex;gap:10px;align-items:center;
+    box-shadow:0 12px 30px -10px rgba(232,93,44,.6);
+    transition:.2s;
+  }
+  .btn-primary:hover{background:var(--orange-2)}
+  .btn-ghost{
+    padding:18px 24px;font-size:14px;font-weight:600;color:var(--paper);
+    display:inline-flex;gap:10px;align-items:center;border-bottom:1px solid var(--rule)
+  }
+  .btn-ghost:hover{border-bottom-color:var(--paper)}
+
+  /* hero right: stat card stack */
+  .hero-stack{position:relative;height:520px}
+  .stat-card{
+    position:absolute;background:linear-gradient(180deg,var(--ink-3),var(--ink-2));
+    border:1px solid var(--rule);border-radius:18px;padding:28px;
+  }
+  .stat-card .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--paper-dim);text-transform:uppercase}
+  .stat-card .v{font-family:var(--display);font-size:72px;line-height:1;letter-spacing:.02em;margin-top:18px}
+  .stat-card .v small{font-family:var(--sans);font-size:18px;font-weight:500;color:var(--paper-dim);margin-left:6px;letter-spacing:0}
+  .stat-card .desc{margin-top:14px;font-size:13px;color:var(--paper-dim);line-height:1.5}
+
+  .sc-1{top:0;left:0;width:300px}
+  .sc-1 .v{color:var(--orange)}
+  .sc-2{top:60px;right:0;width:280px}
+  .sc-2 .v{color:var(--paper)}
+  .sc-3{bottom:0;left:60px;width:340px}
+  .sc-3 .v{color:var(--indigo)}
+
+  /* hero figure - the upward gesture */
+  .gesture{
+    position:absolute;right:8%;top:8%;width:280px;height:380px;pointer-events:none;opacity:.9;
+  }
+  .gesture svg{width:100%;height:100%}
+
+  /* scrolling marquee */
+  .marquee{
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    overflow:hidden;background:rgba(0,0,0,.2);
+  }
+  .marquee-track{display:flex;gap:80px;padding:22px 0;white-space:nowrap;animation:scroll 40s linear infinite}
+  .marquee span{font-family:var(--display);font-size:34px;letter-spacing:.06em;color:var(--paper);opacity:.6}
+  .marquee span.acc{color:var(--orange);opacity:1}
+  .marquee .star{display:inline-block;color:var(--indigo);transform:translateY(-4px);margin:0 8px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ============= SECTION SHELL ============= */
+  section.block{padding:140px 0;position:relative}
+  .section-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:80px;align-items:end}
+  .section-head h2{font-family:var(--sans);font-weight:900;font-size:64px;line-height:1;letter-spacing:-.03em}
+  .section-head h2 .ital{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--orange)}
+  .section-head .sub{font-size:17px;color:var(--paper-dim);line-height:1.65;max-width:480px;justify-self:end}
+  .section-num{position:absolute;top:80px;left:56px;font-family:var(--mono);font-size:11px;color:var(--paper-dim);letter-spacing:.2em}
+
+  /* ============= SERVICES ============= */
+  .services{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .svc{background:var(--ink);padding:48px 36px 40px;min-height:420px;display:flex;flex-direction:column;position:relative;transition:.3s;cursor:pointer}
+  .svc:hover{background:var(--ink-2)}
+  .svc .ord{font-family:var(--mono);font-size:11px;color:var(--paper-dim);letter-spacing:.2em}
+  .svc .ic{margin:32px 0 28px;width:64px;height:64px;display:flex;align-items:center;justify-content:center;border:1px solid var(--rule);border-radius:14px;color:var(--orange)}
+  .svc h3{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+  .svc h3 .en{display:block;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--paper-dim);letter-spacing:.14em;margin-top:6px;text-transform:uppercase}
+  .svc p{font-size:14px;line-height:1.65;color:var(--paper-dim);margin-top:18px;flex:1}
+  .svc .arrow{align-self:flex-end;width:36px;height:36px;border:1px solid var(--rule);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.3s}
+  .svc:hover .arrow{background:var(--orange);border-color:var(--orange);color:#fff;transform:rotate(-45deg)}
+
+  /* ============= WHY ============= */
+  .why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
+  .why-img{
+    aspect-ratio: 4/5; border-radius:20px;overflow:hidden;position:relative;
+    background:
+      repeating-linear-gradient(135deg, rgba(239,233,225,.04) 0 14px, transparent 14px 28px),
+      linear-gradient(180deg, var(--ink-3), var(--ink-2));
+    border:1px solid var(--rule);
+  }
+  .why-img::after{
+    content:"[ JOBSITE / 현장 사진 ]";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-family:var(--mono);font-size:12px;color:var(--paper-dim);letter-spacing:.16em;
+  }
+  .why-img .corner{position:absolute;bottom:24px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:end;font-family:var(--mono);font-size:10px;color:var(--paper);letter-spacing:.16em;text-transform:uppercase}
+  .why-img .corner .badge{background:var(--orange);color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;font-size:11px}
+  .why-list{padding-top:20px}
+  .why-list .row{display:grid;grid-template-columns:80px 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--rule)}
+  .why-list .row:last-child{border-bottom:1px solid var(--rule)}
+  .why-list .row .n{font-family:var(--display);font-size:36px;color:var(--orange);line-height:1}
+  .why-list .row h4{font-size:22px;font-weight:800;letter-spacing:-.015em;margin-bottom:10px}
+  .why-list .row p{font-size:14.5px;color:var(--paper-dim);line-height:1.65}
+  .why-list .row .meta{margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--orange);text-transform:uppercase}
+
+  /* ============= PROJECTS ============= */
+  .projects{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+  .proj{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--rule);background:var(--ink-2)}
+  .proj .img{
+    aspect-ratio: 4/3;
+    background:
+      repeating-linear-gradient(45deg, rgba(239,233,225,.05) 0 12px, transparent 12px 24px),
+      linear-gradient(180deg, var(--ink-3), var(--ink-2));
+    position:relative;
+  }
+  .proj .img::after{content:attr(data-label);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-size:11px;color:var(--paper-dim);letter-spacing:.16em}
+  .proj.tall .img{aspect-ratio: 3/4}
+  .proj .meta{padding:22px 24px 24px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+  .proj h5{font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .proj .tags{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--paper-dim);text-transform:uppercase}
+  .proj .yr{font-family:var(--display);font-size:22px;color:var(--orange);letter-spacing:.04em}
+
+  .p1{grid-column:span 7}
+  .p2{grid-column:span 5}
+  .p3{grid-column:span 4}
+  .p4{grid-column:span 4}
+  .p5{grid-column:span 4}
+
+  /* ============= CONTACT ============= */
+  .contact-block{background:linear-gradient(180deg,var(--ink-2),var(--ink));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:120px 0}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .contact-grid h2{font-family:var(--sans);font-weight:900;font-size:80px;line-height:.95;letter-spacing:-.035em}
+  .contact-grid h2 .o{color:var(--orange)}
+  .contact-grid h2 .i{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--indigo)}
+  .contact-meta{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:32px 24px}
+  .contact-meta .row .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--paper-dim);text-transform:uppercase;margin-bottom:10px}
+  .contact-meta .row .v{font-size:16px;line-height:1.55;color:var(--paper)}
+  .contact-meta .row .v.big{font-family:var(--display);font-size:36px;color:var(--orange);letter-spacing:.04em}
+
+  .form{background:var(--ink-3);border:1px solid var(--rule);border-radius:22px;padding:40px}
+  .form .frow{margin-bottom:22px}
+  .form label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--paper-dim);text-transform:uppercase;margin-bottom:10px}
+  .form input,.form textarea,.form select{
+    width:100%;background:transparent;border:0;border-bottom:1px solid var(--rule);
+    color:var(--paper);font:inherit;font-size:16px;padding:8px 0 14px;
+  }
+  .form input:focus,.form textarea:focus,.form select:focus{outline:none;border-bottom-color:var(--orange)}
+  .form textarea{resize:none;min-height:80px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+  .chip{padding:8px 12px;border-radius:999px;border:1px solid var(--rule);font-size:12px;font-weight:500;color:var(--paper-dim);cursor:pointer;transition:.2s;white-space:nowrap}
+  .chip.on,.chip:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+  .form .submit{margin-top:14px;width:100%;background:var(--paper);color:var(--ink);padding:18px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:.04em;display:flex;align-items:center;justify-content:center;gap:10px}
+  .form .submit:hover{background:var(--orange);color:#fff}
+
+  /* ============= FOOTER ============= */
+  footer{padding:80px 0 40px}
+  .foot-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:60px;border-bottom:1px solid var(--rule)}
+  .foot-top h6{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--paper-dim);text-transform:uppercase;margin-bottom:18px}
+  .foot-top a, .foot-top p{display:block;font-size:14px;color:var(--paper);opacity:.85;margin-bottom:10px;line-height:1.55}
+  .foot-top a:hover{opacity:1;color:var(--orange)}
+  .foot-bot{display:flex;justify-content:space-between;padding-top:32px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--paper-dim);text-transform:uppercase}
+
+  /* misc */
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--paper-dim);text-transform:uppercase}
+  .grain::before{
+    content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.5;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP STRIP ===== -->
+<div class="top">
+  <div class="wrap">
+    <div class="left">
+      <span><i class="dot"></i>SINCE 2008 · 부산 부산진구</span>
+      <span>전기공사업 면허 · 산업안전인증</span>
+    </div>
+    <div class="right">051 · 895 · 5505 &nbsp; / &nbsp; ydin@ydin.co.kr</div>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="bar">
+  <div class="wrap">
+    <a href="#" class="logo">
+      <span class="mark">
+        <!-- original abstracted mark -->
+        <svg viewBox="0 0 48 48" fill="none">
+          <rect x="1" y="1" width="46" height="46" rx="10" stroke="#efe9e1" stroke-opacity=".18"/>
+          <!-- Y stem -->
+          <path d="M11 12 L20 24 L20 36" stroke="#2c4aa0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 24 L29 12" stroke="#2c4aa0" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- D arc -->
+          <path d="M28 14 a10 10 0 0 1 0 20" stroke="#e85d2c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <!-- spark -->
+          <circle cx="36" cy="13" r="2.4" fill="#e85d2c"/>
+        </svg>
+      </span>
+      <span class="name">
+        <span class="ko">(주)와이디인</span>
+        <span class="en">YD IN ELECTRICIAN CO.,LTD.</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#home" class="active">홈</a>
+      <a href="#about">회사소개</a>
+      <a href="#services">사업영역</a>
+      <a href="#projects">시공실적</a>
+      <a href="#contact">문의·견적</a>
+    </div>
+    <div class="cta-call">
+      <div>
+        <div class="label">대표전화 / Estimate</div>
+        <div class="num">051 · 895 · 5505</div>
+      </div>
+      <a href="#contact" class="cta-btn">
+        견적 문의
+        <svg class="arr" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero grain" id="home">
+  <div class="wrap">
+    <div class="hero-left">
+      <span class="eyebrow">Busan · Established 2008 · LIC. No. 23-부산-21130</span>
+      <h1 class="display">
+        전기로 <span class="b">연결</span>하는<br/>
+        <span class="o">신뢰의</span> 시공.<br/>
+        <span class="stroke">YD IN.</span>
+      </h1>
+      <p class="lede">
+        (주)와이디인은 부산을 거점으로 내선·외선·산업·태양광 전기공사를 수행하는 전문 시공사입니다.
+        17년간 한 자리에서 쌓아온 현장 경험과 무사고 실적으로, 작은 공사부터 산업 인프라까지 안전하고 정확하게 책임집니다.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          무료 현장견적 신청
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#projects" class="btn-ghost">시공 실적 보기 →</a>
+      </div>
+    </div>
+
+    <div class="hero-stack">
+      <!-- abstract upward gesture echoing the figure motif -->
+      <div class="gesture">
+        <svg viewBox="0 0 200 280" fill="none">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#2c4aa0"/>
+              <stop offset="1" stop-color="#5b4e96"/>
+            </linearGradient>
+          </defs>
+          <circle cx="118" cy="28" r="16" fill="#e85d2c"/>
+          <path d="M118 46 C 120 80, 80 110, 60 160 C 50 190, 70 230, 90 268"
+                stroke="url(#g1)" stroke-width="22" stroke-linecap="round" fill="none"/>
+          <path d="M118 56 C 140 90, 160 110, 178 140"
+                stroke="#2c4aa0" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <path d="M118 60 C 110 90, 90 100, 60 110"
+                stroke="#5b4e96" stroke-width="12" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="stat-card sc-1">
+        <div class="k">Founded</div>
+        <div class="v">17<small>년</small></div>
+        <div class="desc">부산 부산진구 한 자리에서 이어온 전기공사 경력</div>
+      </div>
+      <div class="stat-card sc-2">
+        <div class="k">Zero-Accident</div>
+        <div class="v">1,240<small>일+</small></div>
+        <div class="desc">현장 무사고 운영. 안전관리자 상주.</div>
+      </div>
+      <div class="stat-card sc-3">
+        <div class="k">Completed Projects</div>
+        <div class="v">312<small>건</small></div>
+        <div class="desc">내선·외선·산업·태양광 누적 시공</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>내선 전기공사</span><span class="star">✦</span>
+    <span class="acc">외선 전기공사</span><span class="star">✦</span>
+    <span>산업 전기설비</span><span class="star">✦</span>
+    <span class="acc">태양광 발전</span><span class="star">✦</span>
+    <span>변·배전 시공</span><span class="star">✦</span>
+    <span>안전 진단</span><span class="star">✦</span>
+    <span>내선 전기공사</span><span class="star">✦</span>
+    <span class="acc">외선 전기공사</span><span class="star">✦</span>
+    <span>산업 전기설비</span><span class="star">✦</span>
+    <span class="acc">태양광 발전</span><span class="star">✦</span>
+    <span>변·배전 시공</span><span class="star">✦</span>
+    <span>안전 진단</span><span class="star">✦</span>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="block" id="services">
+  <span class="section-num">(01) — SERVICES</span>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>사업영역<br/><span class="ital">four pillars.</span></h2>
+      <p class="sub">건물 한 동의 배선부터 산업현장 변전, 옥상의 태양광 패널까지 ─ 전기가 흐르는 모든 곳에서, 와이디인은 처음부터 끝까지 책임 시공합니다.</p>
+    </div>
+
+    <div class="services">
+      <div class="svc">
+        <span class="ord">— 01</span>
+        <div class="ic">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 4h18v12H3z M7 20h10 M12 16v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l-3 5h4l-3 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>내선 전기공사<span class="en">Indoor Wiring</span></h3>
+        <p>상가·주택·사무실 등 건축물 내부의 분전반, 콘센트, 조명, 통신 배선을 설계부터 시공·점검까지 일원화 시공합니다.</p>
+        <span class="arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+      <div class="svc">
+        <span class="ord">— 02</span>
+        <div class="ic">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 18l8-10 8 10 M4 18h16 M12 8V3 M9 3h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="14" r="1.2" fill="currentColor"/></svg>
+        </div>
+        <h3>외선 전기공사<span class="en">Outdoor / Distribution</span></h3>
+        <p>전주, 가공·지중 배전선로, 인입 공사 등 옥외 전력 인프라 구축. 한전 인입 협의부터 준공검사까지 풀-서비스.</p>
+        <span class="arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+      <div class="svc">
+        <span class="ord">— 03</span>
+        <div class="ic">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M7 10h2v4H7z M11 10h2v4h-2z M15 10h2v4h-2z" stroke="currentColor" stroke-width="1.4"/><path d="M3 3h18 M3 21h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>산업 전기설비<span class="en">Industrial Plant</span></h3>
+        <p>공장 자동화 라인, MCC·분전반·변압기 설치, 동력 배선, 접지·피뢰 등 산업 현장의 고전력 설비를 시공·유지보수합니다.</p>
+        <span class="arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+      <div class="svc">
+        <span class="ord">— 04</span>
+        <div class="ic">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v2 M12 19v2 M3 12h2 M19 12h2 M5.6 5.6l1.4 1.4 M17 17l1.4 1.4 M5.6 18.4l1.4-1.4 M17 7l1.4-1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>태양광 발전<span class="en">Solar PV</span></h3>
+        <p>주택·상업·산업용 태양광 발전소 시공 및 한전 계통연계. RPS 사업, 자가소비형 설비, 유지보수까지 통합 제공.</p>
+        <span class="arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY ===== -->
+<section class="block" id="about" style="padding-top:40px">
+  <span class="section-num">(02) — WHY YD IN</span>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>17년의 현장이<br/>증명하는 <span class="ital">한 가지.</span></h2>
+      <p class="sub">한 번의 시공으로 끝나지 않습니다. 와이디인은 견적, 시공, 준공, 유지보수까지 ─ 같은 사람이 끝까지 책임지는 운영 방식을 고집합니다.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-img">
+        <div class="corner">
+          <span>YDIN / SITE 0214 — BUSAN INDUSTRIAL ZONE</span>
+          <span class="badge">현장 사진 자리</span>
+        </div>
+      </div>
+      <div class="why-list">
+        <div class="row">
+          <div class="n">01</div>
+          <div>
+            <h4>면허·인증을 갖춘 전문 시공</h4>
+            <p>전기공사업 등록, 산업안전보건 인증을 보유한 정식 시공사. 모든 공사는 법정 절차에 따라 진행되며, 준공 후 인증서·도면 일체를 제공합니다.</p>
+            <div class="meta">— 라이선스 No. 23-부산-21130</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="n">02</div>
+          <div>
+            <h4>안전관리자 상주, 무사고 1,240일+</h4>
+            <p>모든 현장에 안전관리자가 상주하며, 일일 점검·KPI 체크리스트를 운영합니다. 작은 공사도 같은 기준으로 진행합니다.</p>
+            <div class="meta">— ZERO INCIDENT SINCE 2022.07</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="n">03</div>
+          <div>
+            <h4>24시간 긴급 출동 (부산권)</h4>
+            <p>정전·누전·단락 사고 발생 시 부산 전역 1시간 이내 출동. 야간·휴일 동일 대응. 거래처는 우선 응답합니다.</p>
+            <div class="meta">— EMERGENCY · 051-895-5505</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="n">04</div>
+          <div>
+            <h4>준공 후 2년 무상 A/S</h4>
+            <p>시공 결과물에 대한 2년 무상 A/S, 이후에도 상시 유지보수 계약으로 안정적인 전력 운영을 지원합니다.</p>
+            <div class="meta">— 2-YEAR WARRANTY · LIFE-LONG SUPPORT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="block" id="projects" style="padding-top:0">
+  <span class="section-num">(03) — RECENT WORK</span>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>최근 <span class="ital">시공 실적.</span></h2>
+      <p class="sub">2024–2026년 진행한 대표 프로젝트 일부입니다. 전체 시공 포트폴리오 및 도면 자료는 견적 문의 시 별도 제공해 드립니다.</p>
+    </div>
+
+    <div class="projects">
+      <div class="proj p1">
+        <div class="img" data-label="[ 사상 산단 변전실 ]"></div>
+        <div class="meta">
+          <div>
+            <h5>사상 산단 K공장 변전실 증설</h5>
+            <div class="tags">산업 · 22.9kV 수전 · MCC</div>
+          </div>
+          <div class="yr">2025</div>
+        </div>
+      </div>
+      <div class="proj p2 tall">
+        <div class="img" data-label="[ 옥상 태양광 ]"></div>
+        <div class="meta">
+          <div>
+            <h5>해운대 물류센터 옥상 태양광 480kW</h5>
+            <div class="tags">태양광 · 자가소비형 · 한전계통연계</div>
+          </div>
+          <div class="yr">2025</div>
+        </div>
+      </div>
+      <div class="proj p3">
+        <div class="img" data-label="[ 상가 인입 ]"></div>
+        <div class="meta">
+          <div>
+            <h5>가야동 근린상가 한전 인입공사</h5>
+            <div class="tags">외선 · 지중인입</div>
+          </div>
+          <div class="yr">2024</div>
+        </div>
+      </div>
+      <div class="proj p4">
+        <div class="img" data-label="[ 오피스 내선 ]"></div>
+        <div class="meta">
+          <div>
+            <h5>서면 오피스빌딩 전관 내선 리모델</h5>
+            <div class="tags">내선 · 분전반 교체</div>
+          </div>
+          <div class="yr">2024</div>
+        </div>
+      </div>
+      <div class="proj p5">
+        <div class="img" data-label="[ 공장 동력 ]"></div>
+        <div class="meta">
+          <div>
+            <h5>강서 공단 동력 배선 + 접지 시공</h5>
+            <div class="tags">산업 · 동력 · 접지</div>
+          </div>
+          <div class="yr">2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-block" id="contact">
+  <span class="section-num" style="top:40px">(04) — GET A QUOTE</span>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>현장이<br/>준비되었다면,<br/><span class="i">우리가</span> 갑니다 <span class="o">→</span></h2>
+        <div class="contact-meta">
+          <div class="row">
+            <div class="k">대표 전화 · CALL</div>
+            <div class="v big">051-895-5505</div>
+          </div>
+          <div class="row">
+            <div class="k">이메일 · EMAIL</div>
+            <div class="v">ydin@ydin.co.kr<br/>quote@ydin.co.kr</div>
+          </div>
+          <div class="row">
+            <div class="k">주소 · ADDRESS</div>
+            <div class="v">부산광역시 부산진구<br/>가야대로408번길 27</div>
+          </div>
+          <div class="row">
+            <div class="k">운영시간 · HOURS</div>
+            <div class="v">평일 08:30 – 18:30<br/>긴급출동 24/7 (부산권)</div>
+          </div>
+          <div class="row" style="grid-column:1/-1">
+            <div class="k">사업자등록번호 · REG.</div>
+            <div class="v">123-45-67890 &nbsp;·&nbsp; 전기공사업 면허 23-부산-21130</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="form" onsubmit="event.preventDefault(); alert('견적 문의 접수 (데모)')">
+        <div class="frow">
+          <label>공사 종류 · Service</label>
+          <div class="chips">
+            <span class="chip on">내선</span>
+            <span class="chip">외선</span>
+            <span class="chip">산업</span>
+            <span class="chip">태양광</span>
+            <span class="chip">유지보수</span>
+            <span class="chip">긴급출동</span>
+          </div>
+        </div>
+        <div class="frow"><label>성함 · Name</label><input placeholder="홍길동" /></div>
+        <div class="frow"><label>연락처 · Phone</label><input placeholder="010-0000-0000" /></div>
+        <div class="frow"><label>현장 주소 · Site</label><input placeholder="부산광역시 ..." /></div>
+        <div class="frow"><label>요청 내용 · Notes</label><textarea placeholder="공사 규모, 일정, 도면 유무 등을 적어주세요."></textarea></div>
+        <button class="submit">
+          견적 요청 보내기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="#" class="logo" style="margin-bottom:20px">
+          <span class="mark">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="1" y="1" width="46" height="46" rx="10" stroke="#efe9e1" stroke-opacity=".18"/>
+              <path d="M11 12 L20 24 L20 36" stroke="#2c4aa0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 24 L29 12" stroke="#2c4aa0" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M28 14 a10 10 0 0 1 0 20" stroke="#e85d2c" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <circle cx="36" cy="13" r="2.4" fill="#e85d2c"/>
+            </svg>
+          </span>
+          <span class="name">
+            <span class="ko">(주)와이디인</span>
+            <span class="en">YD IN ELECTRICIAN CO.,LTD.</span>
+          </span>
+        </a>
+        <p style="font-size:13px;color:var(--paper-dim);line-height:1.6;max-width:300px;margin-top:14px">
+          전기로 연결되는 모든 현장의 안전한 시공 ─ 부산 (주)와이디인.
+        </p>
+      </div>
+      <div>
+        <h6>사업영역</h6>
+        <a href="#">내선 전기공사</a>
+        <a href="#">외선 전기공사</a>
+        <a href="#">산업 전기설비</a>
+        <a href="#">태양광 발전</a>
+      </div>
+      <div>
+        <h6>회사</h6>
+        <a href="#">회사소개</a>
+        <a href="#">시공실적</a>
+        <a href="#">인증 / 면허</a>
+        <a href="#">채용</a>
+      </div>
+      <div>
+        <h6>연락</h6>
+        <a href="tel:0518955505">051-895-5505</a>
+        <a href="mailto:ydin@ydin.co.kr">ydin@ydin.co.kr</a>
+        <p>부산진구 가야대로408번길 27</p>
+        <p>평일 08:30 – 18:30</p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 YD IN ELECTRICIAN CO., LTD.</span>
+      <span>전기공사업 면허 23-부산-21130 · 사업자등록 123-45-67890</span>
+      <span>Site / 2026 — Original design</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // chip toggle
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', e => {
+    e.currentTarget.classList.toggle('on');
+  }));
+</script>
+</body>
+</html>

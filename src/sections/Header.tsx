@@ -1,98 +1,60 @@
-// 상단 고정 네비게이션 — 다크 글래스 + 그라데이션 워드마크
-import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+// 스티키 네비게이션 — 로고 + 앵커 메뉴 + 대표전화 + 견적 CTA
 import logo from "../assets/logo.png";
 
 const NAV = [
-  { href: "#about", label: "회사소개" },
+  { href: "#home", label: "홈", active: true },
   { href: "#services", label: "사업영역" },
-  { href: "#portfolio", label: "시공안내" },
-  { href: "#contact", label: "오시는 길" },
+  { href: "#process", label: "시공절차" },
+  { href: "#projects", label: "시공안내" },
+  { href: "#about", label: "회사소개" },
+  { href: "#contact", label: "견적문의" },
 ];
 
 export function Header() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled
-          ? "border-b border-white/10 bg-black/55 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
-        <a href="#top" className="group flex items-center gap-2.5">
-          <img
-            src={logo}
-            alt="(주)와이디인 로고"
-            className="h-9 w-9 rounded-lg object-cover ring-1 ring-white/10"
-          />
-          <span className="text-lg font-extrabold tracking-tight">
-            <span className="text-grad-logo">와이디인</span>
+    <nav className="bar">
+      <div className="wrap">
+        <a href="#home" className="logo">
+          <span className="mark">
+            <img src={logo} alt="(주)와이디인 로고" />
+          </span>
+          <span className="name">
+            <span className="ko">(주)와이디인</span>
+            <span className="en">YD IN ELECTRICIAN CO.,LTD.</span>
           </span>
         </a>
-
-        <nav className="hidden items-center gap-7 md:flex">
+        <div className="nav-links">
           {NAV.map((n) => (
-            <a
-              key={n.href}
-              href={n.href}
-              className="text-sm font-medium text-white/70 transition hover:text-white"
-            >
+            <a key={n.href} href={n.href} className={n.active ? "active" : ""}>
               {n.label}
             </a>
           ))}
-          <a
-            href="tel:051-895-5505"
-            className="inline-flex items-center gap-2 rounded-full bg-grad-logo px-4 py-2 text-sm font-semibold text-black shadow-[0_10px_30px_-12px_rgba(168,85,247,0.6)] transition hover:brightness-110"
-          >
-            <Phone className="h-4 w-4" />
-            051-895-5505
-          </a>
-        </nav>
-
-        <button
-          type="button"
-          aria-label="메뉴 열기"
-          className="rounded-md p-2 text-white/80 md:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {open && (
-        <div className="border-t border-white/10 bg-black/80 backdrop-blur-xl md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-3">
-            {NAV.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 text-base font-medium text-white/85 hover:bg-white/5"
-              >
-                {n.label}
-              </a>
-            ))}
-            <a
-              href="tel:051-895-5505"
-              className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-grad-logo px-4 py-2.5 text-sm font-semibold text-black"
-            >
-              <Phone className="h-4 w-4" />
-              051-895-5505
-            </a>
-          </div>
         </div>
-      )}
-    </header>
+        <div className="cta-wrap">
+          <div className="phone">
+            <span className="l">대표전화 · CALL</span>
+            <span className="n">051 · 895 · 5505</span>
+          </div>
+          <a href="#contact" className="btn-pill ink">
+            견적 문의
+            <ArrowIcon />
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M5 12h14M13 6l6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }

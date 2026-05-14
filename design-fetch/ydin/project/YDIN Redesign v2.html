@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1440" />
+<title>(주)와이디인 · YD In electrician Co., Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gowun+Batang:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+  /* === palette derived from the logo === */
+  --ink:        #0F0B09;
+  --ink-2:      #1A1411;
+  --ink-3:      #261E18;
+  --paper:      #F1E8D8;     /* warm cream — primary canvas */
+  --paper-2:    #E7DAC1;     /* secondary cream */
+  --paper-3:    #D5C5A3;     /* tertiary cream */
+  --paper-line: rgba(15,11,9,.12);
+  --paper-line-2:rgba(15,11,9,.06);
+  --dark-line:  rgba(241,232,216,.14);
+  --dark-line-2:rgba(241,232,216,.06);
+
+  --orange:     #E85D2C;
+  --orange-2:   #C43F15;
+  --orange-3:   #F4A87E;
+  --blue:       #2C4AA0;
+  --blue-2:     #1B3070;
+  --indigo:     #5B4E96;
+  --indigo-2:   #3F3470;
+  --rust:       #8A3A1A;
+
+  --display: "Black Han Sans","Noto Sans KR",sans-serif;
+  --display-en:"Archivo Black","Helvetica Neue",sans-serif;
+  --serif:   "Gowun Batang","Noto Serif KR",serif;
+  --sans:    "Noto Sans KR","Helvetica Neue",Arial,sans-serif;
+  --mono:    "JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{background:var(--paper);color:var(--ink)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:0;color:inherit;cursor:pointer}
+svg{display:block}
+
+.wrap{max-width:1320px;margin:0 auto;padding:0 56px;position:relative}
+
+/* grain layer reusable */
+.grain{position:relative}
+.grain::after{
+  content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.5;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.dark .grain::after{mix-blend-mode:overlay;opacity:.6;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 .96  0 0 0 0 .91  0 0 0 0 .84  0 0 0 .12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ============ TOP STRIP ============ */
+.top{background:var(--ink);color:var(--paper-3);font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:36px}
+.top .left{display:flex;gap:24px}
+.top em{color:var(--orange);font-style:normal;font-weight:500}
+
+/* ============ NAV ============ */
+nav.bar{position:sticky;top:0;z-index:50;background:rgba(241,232,216,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--paper-line)}
+nav .wrap{display:flex;align-items:center;height:88px;gap:48px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo .mark{width:54px;height:54px;flex:none}
+.logo .name{line-height:1}
+.logo .name .ko{font-family:var(--display);font-size:24px;letter-spacing:-.01em;color:var(--ink)}
+.logo .name .en{font-family:var(--mono);font-size:9.5px;color:var(--orange);letter-spacing:.18em;margin-top:6px;font-weight:500;text-transform:uppercase}
+.nav-links{display:flex;gap:28px;margin-left:32px}
+.nav-links a{font-size:14px;font-weight:600;color:var(--ink);opacity:.75;position:relative;padding:8px 0;white-space:nowrap;flex-shrink:0}
+.nav-links a:hover{opacity:1}
+.nav-links a.active{opacity:1}
+.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;background:var(--orange)}
+.cta-wrap{margin-left:auto;display:flex;align-items:center;gap:24px}
+.phone{display:flex;flex-direction:column;align-items:flex-end;line-height:1}
+.phone .l{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink);opacity:.55;text-transform:uppercase}
+.phone .n{font-family:var(--display-en);font-size:22px;color:var(--ink);margin-top:6px;letter-spacing:.02em}
+.btn-pill{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.02em;transition:.2s}
+.btn-pill.ink{background:var(--ink);color:var(--paper)}
+.btn-pill.ink:hover{background:var(--orange)}
+.btn-pill.orange{background:var(--orange);color:#fff;box-shadow:0 14px 30px -12px rgba(232,93,44,.55)}
+.btn-pill.orange:hover{background:var(--orange-2)}
+.btn-pill.ghost-dark{border:1px solid var(--ink);color:var(--ink)}
+.btn-pill.ghost-dark:hover{background:var(--ink);color:var(--paper)}
+.btn-pill.ghost-light{border:1px solid var(--paper);color:var(--paper)}
+.btn-pill.ghost-light:hover{background:var(--paper);color:var(--ink)}
+
+/* ============ HERO (dark, the "logo card") ============ */
+.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.hero::before{
+  /* ambient color wash like the logo card */
+  content:"";position:absolute;inset:0;background:
+    radial-gradient(900px 600px at 12% 8%, rgba(91,78,150,.35), transparent 60%),
+    radial-gradient(700px 480px at 92% 30%, rgba(232,93,44,.18), transparent 65%),
+    radial-gradient(800px 500px at 50% 110%, rgba(44,74,160,.25), transparent 65%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;padding:80px 0 100px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--orange-3);text-transform:uppercase;font-weight:500}
+.eyebrow::before{content:"";width:32px;height:1px;background:var(--orange-3)}
+
+h1.hero-title{
+  font-family:var(--display);font-weight:400;
+  font-size:104px;line-height:.96;letter-spacing:-.02em;
+  margin:32px 0 28px;
+}
+h1.hero-title .o{color:var(--orange)}
+h1.hero-title .b{color:var(--indigo)}
+h1.hero-title .ital{font-family:var(--serif);font-style:italic;font-weight:700;letter-spacing:-.02em}
+h1.hero-title .stroke{-webkit-text-stroke:1.5px var(--paper);color:transparent}
+
+.hero-lede{font-size:17px;line-height:1.65;color:rgba(241,232,216,.78);max-width:520px;margin-top:8px}
+.hero-actions{display:flex;gap:16px;margin-top:44px;align-items:center}
+
+/* hero right — figure + ribbon composition */
+.hero-figure{position:relative;height:600px}
+.ribbon-bg{position:absolute;inset:0;pointer-events:none;opacity:.7}
+.figure-frame{
+  position:absolute;right:0;top:30px;width:480px;height:540px;
+  border-radius:240px 240px 24px 24px;
+  background:
+    radial-gradient(ellipse 400px 300px at 50% 20%, rgba(91,78,150,.5), transparent 70%),
+    linear-gradient(180deg, rgba(44,74,160,.18), rgba(15,11,9,.6));
+  border:1px solid var(--dark-line);
+  overflow:hidden;
+}
+.figure-frame::after{
+  content:"";position:absolute;inset:0;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9'/><feColorMatrix values='0 0 0 0 .96  0 0 0 0 .91  0 0 0 0 .84  0 0 0 .14 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mix-blend-mode:overlay;opacity:.7;
+}
+.figure-frame svg{position:relative;z-index:2;width:100%;height:100%}
+
+/* corner labels on figure frame */
+.fig-corner{position:absolute;z-index:3;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--paper-3);text-transform:uppercase}
+.fig-corner.tl{top:24px;left:28px}
+.fig-corner.tr{top:24px;right:28px;text-align:right}
+.fig-corner.bl{bottom:24px;left:28px;max-width:200px;line-height:1.5}
+.fig-corner.br{bottom:24px;right:28px;text-align:right}
+.fig-corner .v{font-family:var(--display-en);font-size:26px;color:var(--paper);letter-spacing:.04em;margin-top:6px}
+
+/* floating stat badge */
+.float-badge{
+  position:absolute;left:-40px;bottom:80px;z-index:4;
+  background:var(--paper);color:var(--ink);
+  padding:20px 24px;border-radius:18px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+  display:flex;align-items:center;gap:18px;
+}
+.float-badge .ic{width:48px;height:48px;border-radius:12px;background:var(--orange);display:flex;align-items:center;justify-content:center;color:#fff}
+.float-badge .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink);opacity:.6;text-transform:uppercase}
+.float-badge .v{font-family:var(--display-en);font-size:24px;color:var(--ink);margin-top:2px;letter-spacing:.02em}
+
+/* ============ MARQUEE / RIBBON STRIP ============ */
+.strip{background:var(--orange);color:var(--ink);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.strip-track{display:flex;gap:60px;padding:22px 0;white-space:nowrap;animation:scroll 38s linear infinite;will-change:transform}
+.strip-track span{font-family:var(--display);font-size:32px;letter-spacing:-.005em}
+.strip-track .dot{width:14px;height:14px;background:var(--ink);border-radius:50%;align-self:center;flex:none}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============ SECTION SHELLS ============ */
+section.block{padding:140px 0;position:relative;overflow:hidden}
+section.dark{background:var(--ink);color:var(--paper)}
+section.cream{background:var(--paper);color:var(--ink)}
+section.cream-2{background:var(--paper-2);color:var(--ink)}
+
+.sec-num{position:absolute;top:60px;left:56px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.sec-num.d{color:var(--paper-3)}
+.sec-num.l{color:var(--ink);opacity:.55}
+
+.sec-head{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;margin-bottom:80px;align-items:end}
+.sec-head h2{font-family:var(--display);font-weight:400;font-size:80px;line-height:.98;letter-spacing:-.02em}
+.sec-head h2 .ital{font-family:var(--serif);font-style:italic;font-weight:700;color:var(--orange);letter-spacing:-.02em}
+.sec-head h2 .stroke-dark{-webkit-text-stroke:1.5px var(--ink);color:transparent}
+.sec-head h2 .stroke-light{-webkit-text-stroke:1.5px var(--paper);color:transparent}
+.sec-head .sub{font-size:17px;line-height:1.65;max-width:480px;justify-self:end}
+.sec-head .sub.d{color:rgba(241,232,216,.7)}
+.sec-head .sub.l{color:rgba(15,11,9,.65)}
+
+/* ============ SERVICES ============ */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.svc-card{
+  position:relative;background:var(--ink);color:var(--paper);
+  padding:48px 44px;border-radius:24px;overflow:hidden;
+  min-height:340px;display:flex;flex-direction:column;
+  transition:.3s;
+}
+.svc-card:nth-child(2n){background:var(--paper);color:var(--ink);border:1px solid var(--paper-line)}
+.svc-card .ord{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.65}
+.svc-card h3{font-family:var(--display);font-size:48px;font-weight:400;letter-spacing:-.02em;margin-top:18px;line-height:1}
+.svc-card .en{font-family:var(--mono);font-size:11px;letter-spacing:.18em;margin-top:10px;opacity:.6;text-transform:uppercase}
+.svc-card p{font-size:15px;line-height:1.65;margin-top:24px;opacity:.78;max-width:380px;flex:1}
+.svc-card .footer{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:24px;border-top:1px solid currentColor;border-color:rgba(255,255,255,.12)}
+.svc-card:nth-child(2n) .footer{border-color:var(--paper-line)}
+.svc-card .tags{display:flex;gap:8px;flex-wrap:wrap}
+.svc-card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;padding:6px 10px;border:1px solid currentColor;border-radius:999px;opacity:.6;text-transform:uppercase}
+.svc-card .arr{width:52px;height:52px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;flex:none;transition:.3s}
+.svc-card:hover .arr{transform:translate(4px,-4px) rotate(-12deg)}
+/* ribbon ornament inside each card */
+.svc-ribbon{position:absolute;right:-40px;top:-30px;width:280px;height:280px;opacity:.5;pointer-events:none}
+
+/* ============ NUMBERS (dark with gradient ribbons) ============ */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--dark-line);border-bottom:1px solid var(--dark-line)}
+.stat{padding:56px 32px;border-right:1px solid var(--dark-line);position:relative}
+.stat:last-child{border-right:0}
+.stat .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--orange-3);text-transform:uppercase}
+.stat .v{font-family:var(--display-en);font-size:88px;line-height:.95;margin:20px 0 14px;letter-spacing:.01em}
+.stat .v small{font-family:var(--sans);font-weight:500;font-size:22px;margin-left:6px;color:var(--paper-3)}
+.stat .d{font-size:13.5px;line-height:1.55;color:rgba(241,232,216,.65)}
+
+/* ============ PROCESS (cream, ribbon flow) ============ */
+.process{position:relative}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;position:relative;z-index:2}
+.proc-step{padding-top:20px}
+.proc-step .num{font-family:var(--display-en);font-size:96px;color:var(--orange);line-height:.9;letter-spacing:.02em}
+.proc-step h4{font-family:var(--display);font-size:30px;letter-spacing:-.02em;margin:18px 0 10px;font-weight:400}
+.proc-step .en{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ink);opacity:.55;text-transform:uppercase}
+.proc-step p{font-size:14.5px;line-height:1.65;color:rgba(15,11,9,.7);margin-top:18px;max-width:280px}
+.proc-flow{position:absolute;top:60px;left:0;right:0;height:6px;pointer-events:none;z-index:1}
+
+/* ============ WHY ============ */
+.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.why-img{
+  aspect-ratio:4/5;border-radius:24px;overflow:hidden;position:relative;
+  background:linear-gradient(180deg, var(--ink-3), var(--ink));
+  border:1px solid var(--dark-line);
+}
+.why-img::before{
+  content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(135deg, rgba(241,232,216,.05) 0 14px, transparent 14px 28px);
+}
+.why-img .ph{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:var(--paper-3)}
+.why-img .ph .l{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.why-img .ph .v{font-family:var(--display);font-size:48px;margin-top:14px;color:var(--paper);letter-spacing:-.02em}
+.why-img .corner{position:absolute;bottom:24px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:flex-end;font-family:var(--mono);font-size:10px;color:var(--paper);letter-spacing:.18em;text-transform:uppercase}
+.why-img .badge{background:var(--orange);color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;font-size:10.5px}
+
+.why-list{padding-top:10px}
+.why-row{display:grid;grid-template-columns:60px 1fr;gap:28px;padding:30px 0;border-top:1px solid var(--paper-line)}
+.why-row:last-child{border-bottom:1px solid var(--paper-line)}
+.why-row .n{font-family:var(--display-en);font-size:32px;color:var(--orange);line-height:1}
+.why-row h5{font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:-.015em;margin-bottom:8px}
+.why-row p{font-size:14.5px;line-height:1.65;color:rgba(15,11,9,.7)}
+.why-row .meta{margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--orange);text-transform:uppercase}
+
+/* ============ PROJECTS ============ */
+.proj-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.proj{position:relative;border-radius:20px;overflow:hidden;background:var(--paper-2);border:1px solid var(--paper-line)}
+.proj .img{
+  position:relative;
+  background:
+    repeating-linear-gradient(45deg, rgba(15,11,9,.06) 0 12px, transparent 12px 24px),
+    linear-gradient(180deg, var(--paper-3), var(--paper-2));
+}
+.proj .img::after{content:attr(data-label);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:rgba(15,11,9,.55)}
+.proj .img.dark-img{background:
+  repeating-linear-gradient(45deg, rgba(241,232,216,.05) 0 12px, transparent 12px 24px),
+  linear-gradient(180deg, var(--ink-3), var(--ink-2));}
+.proj .img.dark-img::after{color:var(--paper-3)}
+.proj .meta{padding:24px 26px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.proj h6{font-family:var(--display);font-size:22px;letter-spacing:-.015em;margin-bottom:8px;font-weight:400;line-height:1.15}
+.proj .tags{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:rgba(15,11,9,.55);text-transform:uppercase}
+.proj .yr{font-family:var(--display-en);font-size:22px;color:var(--orange);letter-spacing:.04em;flex:none}
+.proj .badge-cat{position:absolute;top:18px;left:18px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:10px;padding:6px 12px;border-radius:999px;letter-spacing:.18em;text-transform:uppercase}
+
+.p1{grid-column:span 7}.p1 .img{aspect-ratio:16/10}
+.p2{grid-column:span 5}.p2 .img{aspect-ratio:5/6}
+.p3{grid-column:span 4}.p3 .img{aspect-ratio:4/4}
+.p4{grid-column:span 4}.p4 .img{aspect-ratio:4/4}
+.p5{grid-column:span 4}.p5 .img{aspect-ratio:4/4}
+
+/* ============ CALLOUT / RIBBON QUOTE ============ */
+.callout{padding:120px 0;background:var(--paper-2);position:relative;overflow:hidden}
+.callout .quote{font-family:var(--display);font-weight:400;font-size:80px;line-height:1.05;letter-spacing:-.025em;max-width:1100px;position:relative;z-index:2}
+.callout .quote .ital{font-family:var(--serif);font-style:italic;font-weight:700;color:var(--orange)}
+.callout .quote .stroke{-webkit-text-stroke:1.5px var(--ink);color:transparent}
+.callout .attrib{display:flex;align-items:center;gap:18px;margin-top:48px;position:relative;z-index:2}
+.callout .attrib .av{width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:22px}
+.callout .attrib .who{line-height:1.4}
+.callout .attrib .who .n{font-weight:700;font-size:15px}
+.callout .attrib .who .r{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:rgba(15,11,9,.55);text-transform:uppercase;margin-top:4px}
+.callout-ribbon{position:absolute;right:-200px;top:-100px;width:900px;height:900px;opacity:.16;pointer-events:none}
+
+/* ============ CONTACT ============ */
+.contact{padding:140px 0 120px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:start;position:relative;z-index:2}
+.contact h2{font-family:var(--display);font-weight:400;font-size:104px;line-height:.95;letter-spacing:-.025em}
+.contact h2 .o{color:var(--orange)}
+.contact h2 .ital{font-family:var(--serif);font-style:italic;font-weight:700}
+.contact h2 .stroke{-webkit-text-stroke:1.5px var(--paper);color:transparent}
+
+.contact-meta{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:36px 28px}
+.contact-meta .row .k{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--orange-3);text-transform:uppercase;margin-bottom:10px}
+.contact-meta .row .v{font-size:16px;line-height:1.55;color:var(--paper)}
+.contact-meta .row .v.big{font-family:var(--display-en);font-size:36px;color:var(--paper);letter-spacing:.02em}
+
+.form{background:var(--ink-2);border:1px solid var(--dark-line);border-radius:24px;padding:44px;position:relative;overflow:hidden}
+.form h3{font-family:var(--display);font-size:30px;letter-spacing:-.015em;margin-bottom:8px;font-weight:400}
+.form .fsub{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--orange-3);text-transform:uppercase;margin-bottom:32px}
+.form .frow{margin-bottom:24px}
+.form label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--paper-3);text-transform:uppercase;margin-bottom:12px}
+.form input,.form textarea{
+  width:100%;background:transparent;border:0;border-bottom:1px solid var(--dark-line);
+  color:var(--paper);font:inherit;font-size:16px;padding:6px 0 14px;font-family:var(--sans);
+}
+.form input::placeholder,.form textarea::placeholder{color:rgba(241,232,216,.35)}
+.form input:focus,.form textarea:focus{outline:none;border-bottom-color:var(--orange)}
+.form textarea{resize:none;min-height:60px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:9px 14px;border-radius:999px;border:1px solid var(--dark-line);font-size:12px;font-weight:500;color:var(--paper-3);cursor:pointer;transition:.2s;white-space:nowrap;font-family:var(--sans)}
+.chip.on,.chip:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+.form .submit{margin-top:12px;width:100%;background:var(--orange);color:#fff;padding:20px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:.04em;display:flex;align-items:center;justify-content:center;gap:10px}
+.form .submit:hover{background:var(--orange-2)}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ink);color:var(--paper);padding:80px 0 40px;border-top:1px solid var(--dark-line)}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid var(--dark-line)}
+.foot-top h6{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--orange-3);text-transform:uppercase;margin-bottom:20px}
+.foot-top a,.foot-top p{display:block;font-size:14px;color:var(--paper);opacity:.8;margin-bottom:10px;line-height:1.55}
+.foot-top a:hover{opacity:1;color:var(--orange)}
+.foot-bot{display:flex;justify-content:space-between;padding-top:32px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--paper-3);text-transform:uppercase}
+
+/* mega footer brand */
+.mega{padding:0 0 0 0;text-align:center;border-top:1px solid var(--dark-line)}
+.mega .word{font-family:var(--display);font-size:280px;line-height:1;letter-spacing:-.03em;background:linear-gradient(180deg,var(--paper),transparent 90%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-top:80px}
+.mega .word .o{background:linear-gradient(180deg,var(--orange),transparent 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP UTILITY STRIP ============ -->
+<div class="top">
+  <div class="wrap">
+    <div class="left">
+      <span><em>●</em> SINCE 2008 · 부산 부산진구</span>
+      <span>전기공사업 면허 23-부산-21130</span>
+      <span>산업안전보건 인증</span>
+    </div>
+    <div class="right">긴급출동 24/7 · 051-895-5505</div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav class="bar">
+  <div class="wrap">
+    <a href="#" class="logo">
+      <span class="mark">
+        <!-- original abstracted mark — color-faithful, not a copy -->
+        <svg viewBox="0 0 56 56" fill="none">
+          <rect x="1" y="1" width="54" height="54" rx="12" fill="#0F0B09"/>
+          <defs>
+            <linearGradient id="ny1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2C4AA0"/>
+              <stop offset=".5" stop-color="#5B4E96"/>
+              <stop offset="1" stop-color="#E85D2C"/>
+            </linearGradient>
+          </defs>
+          <!-- Y -->
+          <path d="M11 14 L21 28 L21 42" stroke="url(#ny1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 28 L31 14" stroke="url(#ny1)" stroke-width="4" stroke-linecap="round"/>
+          <!-- D arc -->
+          <path d="M31 17 a10 10 0 0 1 0 22" stroke="#E85D2C" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <!-- spark -->
+          <circle cx="42" cy="15" r="2.6" fill="#E85D2C"/>
+        </svg>
+      </span>
+      <span class="name">
+        <span class="ko">(주)와이디인</span>
+        <span class="en">YD IN ELECTRICIAN CO.,LTD.</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#home" class="active">홈</a>
+      <a href="#services">사업영역</a>
+      <a href="#process">시공절차</a>
+      <a href="#projects">시공실적</a>
+      <a href="#about">회사소개</a>
+      <a href="#contact">견적문의</a>
+    </div>
+    <div class="cta-wrap">
+      <div class="phone">
+        <span class="l">대표전화 · CALL</span>
+        <span class="n">051 · 895 · 5505</span>
+      </div>
+      <a href="#contact" class="btn-pill ink">
+        견적 문의
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero dark grain" id="home">
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Busan · Established 2008 · 17 years on the ground</span>
+          <h1 class="hero-title">
+            전기로<br/>
+            <span class="b">연결</span>되는<br/>
+            <span class="ital o">모든 현장</span>의<br/>
+            <span class="stroke">안전한 시공.</span>
+          </h1>
+          <p class="hero-lede">
+            (주)와이디인은 부산을 거점으로 내선·외선·산업·태양광 전기공사를 책임지는 전문 시공사입니다.
+            17년간 한 자리에서 쌓아온 현장 경험과 무사고 실적으로, 작은 공사부터 산업 인프라까지 처음부터 끝까지 같은 손으로 시공합니다.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-pill orange">
+              무료 현장견적 신청
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#projects" class="btn-pill ghost-light">시공 실적 보기</a>
+          </div>
+        </div>
+
+        <!-- right: figure framed by ribbon, evoking the logo card -->
+        <div class="hero-figure">
+          <!-- ambient ribbons -->
+          <svg class="ribbon-bg" viewBox="0 0 600 600" fill="none" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="rg1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2C4AA0" stop-opacity=".6"/>
+                <stop offset=".5" stop-color="#5B4E96" stop-opacity=".4"/>
+                <stop offset="1" stop-color="#E85D2C" stop-opacity=".3"/>
+              </linearGradient>
+              <linearGradient id="rg2" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#E85D2C" stop-opacity=".5"/>
+                <stop offset="1" stop-color="#2C4AA0" stop-opacity=".2"/>
+              </linearGradient>
+            </defs>
+            <path d="M-40 380 Q 200 200 380 360 T 660 380" stroke="url(#rg1)" stroke-width="80" fill="none" stroke-linecap="round"/>
+            <path d="M40 580 Q 300 460 520 540" stroke="url(#rg2)" stroke-width="40" fill="none" stroke-linecap="round"/>
+          </svg>
+
+          <!-- the framed figure (the "logo card" replica) -->
+          <div class="figure-frame">
+            <svg viewBox="0 0 480 540" fill="none" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="figBody" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#5B4E96"/>
+                  <stop offset="1" stop-color="#2C4AA0"/>
+                </linearGradient>
+                <linearGradient id="figArm" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#2C4AA0"/>
+                  <stop offset="1" stop-color="#5B4E96"/>
+                </linearGradient>
+              </defs>
+              <!-- head / orange sun -->
+              <circle cx="290" cy="90" r="28" fill="#E85D2C"/>
+              <!-- arm reaching up to sun -->
+              <path d="M270 110 C 240 130, 220 150, 230 200"
+                    stroke="url(#figArm)" stroke-width="24" stroke-linecap="round" fill="none"/>
+              <!-- body / torso -->
+              <path d="M240 200 C 245 240, 220 270, 215 330"
+                    stroke="url(#figBody)" stroke-width="34" stroke-linecap="round" fill="none"/>
+              <!-- leg back -->
+              <path d="M220 330 C 200 380, 170 410, 130 470"
+                    stroke="#2C4AA0" stroke-width="26" stroke-linecap="round" fill="none"/>
+              <!-- leg front -->
+              <path d="M225 330 C 245 380, 270 410, 280 480"
+                    stroke="#5B4E96" stroke-width="26" stroke-linecap="round" fill="none"/>
+              <!-- second arm -->
+              <path d="M232 220 C 260 240, 295 245, 330 220"
+                    stroke="#3A56A8" stroke-width="20" stroke-linecap="round" fill="none"/>
+              <!-- sparkle dots -->
+              <circle cx="350" cy="60" r="4" fill="#F4A87E"/>
+              <circle cx="380" cy="180" r="3" fill="#E85D2C" opacity=".7"/>
+              <circle cx="120" cy="240" r="3" fill="#5B4E96" opacity=".7"/>
+            </svg>
+          </div>
+
+          <!-- corner labels -->
+          <span class="fig-corner tl">
+            FILE NO.<br/>
+            <span class="v">YDIN-2008</span>
+          </span>
+          <span class="fig-corner tr">
+            REACH<br/>
+            <span class="v">↗ UP</span>
+          </span>
+          <span class="fig-corner bl">
+            (주)와이디인<br/>
+            YD IN ELECTRICIAN CO.,LTD.<br/>
+            BUSAN, KOREA
+          </span>
+          <span class="fig-corner br">
+            ZERO<br/>
+            <span class="v">ACCIDENT</span>
+          </span>
+
+          <!-- floating badge -->
+          <div class="float-badge">
+            <div class="ic">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" fill="currentColor"/></svg>
+            </div>
+            <div>
+              <div class="k">Emergency 24/7</div>
+              <div class="v">1시간 내 출동</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE STRIP ============ -->
+<div class="strip">
+  <div class="strip-track">
+    <span>내선 전기공사</span><i class="dot"></i>
+    <span>외선 전기공사</span><i class="dot"></i>
+    <span>산업 전기설비</span><i class="dot"></i>
+    <span>태양광 발전</span><i class="dot"></i>
+    <span>변·배전 시공</span><i class="dot"></i>
+    <span>안전 진단</span><i class="dot"></i>
+    <span>긴급 출동</span><i class="dot"></i>
+    <span>내선 전기공사</span><i class="dot"></i>
+    <span>외선 전기공사</span><i class="dot"></i>
+    <span>산업 전기설비</span><i class="dot"></i>
+    <span>태양광 발전</span><i class="dot"></i>
+    <span>변·배전 시공</span><i class="dot"></i>
+    <span>안전 진단</span><i class="dot"></i>
+    <span>긴급 출동</span><i class="dot"></i>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="block cream grain" id="services">
+  <span class="sec-num l">(01) — SERVICES · 사업영역</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>전기가 흐르는<br/>모든 곳, <span class="ital">네 갈래.</span></h2>
+      <p class="sub l">건물 한 동의 배선부터 산업현장의 고압 변전, 옥상의 태양광 패널까지 — 와이디인은 전류가 흐르는 모든 경로를 책임 시공합니다.</p>
+    </div>
+
+    <div class="svc-grid">
+      <!-- 01 -->
+      <div class="svc-card">
+        <svg class="svc-ribbon" viewBox="0 0 280 280" fill="none">
+          <path d="M40 40 Q 200 0 240 240" stroke="#5B4E96" stroke-width="50" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="ord">— 01 / INDOOR WIRING</span>
+        <h3>내선<br/>전기공사</h3>
+        <span class="en">Indoor / Building Wiring</span>
+        <p>상가, 주택, 사무실 등 건축물 내부의 분전반, 콘센트, 조명, 통신 배선을 설계부터 시공·점검까지 일원화 시공합니다.</p>
+        <div class="footer">
+          <div class="tags">
+            <span class="tag">분전반</span>
+            <span class="tag">배선</span>
+            <span class="tag">조명</span>
+          </div>
+          <a class="arr" href="#">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="svc-card">
+        <svg class="svc-ribbon" viewBox="0 0 280 280" fill="none">
+          <path d="M40 240 Q 100 80 240 40" stroke="#E85D2C" stroke-width="50" stroke-linecap="round" fill="none" opacity=".25"/>
+        </svg>
+        <span class="ord">— 02 / OUTDOOR DISTRIBUTION</span>
+        <h3>외선<br/>전기공사</h3>
+        <span class="en">Distribution Line / Service Drop</span>
+        <p>전주, 가공·지중 배전선로, 한전 인입 공사 등 옥외 전력 인프라 구축. 협의부터 준공검사까지 풀-서비스.</p>
+        <div class="footer">
+          <div class="tags">
+            <span class="tag">한전인입</span>
+            <span class="tag">지중화</span>
+            <span class="tag">가공</span>
+          </div>
+          <a class="arr" href="#">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="svc-card">
+        <svg class="svc-ribbon" viewBox="0 0 280 280" fill="none">
+          <path d="M0 140 Q 140 0 280 140 Q 140 280 0 140" stroke="#2C4AA0" stroke-width="40" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="ord">— 03 / INDUSTRIAL PLANT</span>
+        <h3>산업<br/>전기설비</h3>
+        <span class="en">Industrial / High-voltage</span>
+        <p>공장 자동화 라인, MCC·분전반·변압기, 동력 배선, 접지·피뢰까지 — 산업 현장의 고전력 설비를 시공·유지보수합니다.</p>
+        <div class="footer">
+          <div class="tags">
+            <span class="tag">22.9kV</span>
+            <span class="tag">MCC</span>
+            <span class="tag">동력</span>
+            <span class="tag">접지</span>
+          </div>
+          <a class="arr" href="#">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="svc-card">
+        <svg class="svc-ribbon" viewBox="0 0 280 280" fill="none">
+          <circle cx="200" cy="80" r="60" stroke="#E85D2C" stroke-width="40" fill="none" opacity=".35"/>
+        </svg>
+        <span class="ord">— 04 / SOLAR PV</span>
+        <h3>태양광<br/>발전 시공</h3>
+        <span class="en">Solar Photovoltaic / RPS</span>
+        <p>주택·상업·산업용 태양광 발전소 시공 및 한전 계통연계. RPS 사업, 자가소비형 설비, 유지보수까지 통합 제공합니다.</p>
+        <div class="footer">
+          <div class="tags">
+            <span class="tag">RPS</span>
+            <span class="tag">계통연계</span>
+            <span class="tag">자가소비</span>
+          </div>
+          <a class="arr" href="#">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUMBERS / STATS ============ -->
+<section class="block dark grain">
+  <span class="sec-num d">(02) — BY THE NUMBERS</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>현장이<br/>증명하는 <span class="ital">숫자.</span></h2>
+      <p class="sub d">2008년 부산진구 한 자리에서 시작해 ─ 와이디인이 지금까지 쌓아온 기록입니다. 매년 갱신되며, 갱신될 때마다 더 단단해집니다.</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="k">YEARS · 운영기간</div>
+        <div class="v">17<small>년</small></div>
+        <div class="d">2008년 부산진구 가야동에서 출범 — 같은 자리에서 17년</div>
+      </div>
+      <div class="stat">
+        <div class="k">PROJECTS · 누적시공</div>
+        <div class="v">312<small>건</small></div>
+        <div class="d">내선·외선·산업·태양광 누적 시공건수 (2026.04 기준)</div>
+      </div>
+      <div class="stat">
+        <div class="k">ZERO-INCIDENT · 무사고</div>
+        <div class="v">1,240<small>일+</small></div>
+        <div class="d">현장 무사고 연속 운영일수. 안전관리자 상주.</div>
+      </div>
+      <div class="stat">
+        <div class="k">SOLAR · 설치용량</div>
+        <div class="v">2.8<small>MW</small></div>
+        <div class="d">누적 태양광 발전 설치용량 (RPS + 자가소비형)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="block cream-2 process grain" id="process">
+  <span class="sec-num l">(03) — PROCESS · 시공절차</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>견적부터<br/><span class="ital">사후관리</span>까지.</h2>
+      <p class="sub l">와이디인은 견적 받은 사람과 시공하는 사람, A/S 가는 사람이 같습니다. 한 명의 담당자가 한 현장의 처음과 끝을 책임집니다.</p>
+    </div>
+
+    <div style="position:relative">
+      <!-- ribbon flowing between steps -->
+      <svg class="proc-flow" viewBox="0 0 1200 60" fill="none" preserveAspectRatio="none">
+        <path d="M0 30 Q 200 -20 400 30 T 800 30 T 1200 30" stroke="#E85D2C" stroke-width="3" stroke-dasharray="2 8" fill="none" stroke-linecap="round"/>
+      </svg>
+
+      <div class="proc-grid">
+        <div class="proc-step">
+          <div class="num">01</div>
+          <h4>현장 방문 · 견적</h4>
+          <span class="en">Consult · Estimate</span>
+          <p>전화·웹 문의 접수 후 24시간 내 현장 방문. 도면·용도·예산 청취 후 정식 견적서를 무료로 제공합니다.</p>
+        </div>
+        <div class="proc-step">
+          <div class="num">02</div>
+          <h4>설계 · 자재선정</h4>
+          <span class="en">Design · Specify</span>
+          <p>현장 조건에 맞춘 회로 설계, KS인증 자재 선정, 한전 협의. 모든 자재 내역은 사전 공유됩니다.</p>
+        </div>
+        <div class="proc-step">
+          <div class="num">03</div>
+          <h4>시공 · 안전관리</h4>
+          <span class="en">Construct · Safe-Manage</span>
+          <p>안전관리자 상주, 일일 KPI 체크리스트. 진행 사진·도면을 매일 보고드립니다.</p>
+        </div>
+        <div class="proc-step">
+          <div class="num">04</div>
+          <h4>준공 · 2년 A/S</h4>
+          <span class="en">Handover · Warranty</span>
+          <p>준공검사·인증서·도면 일체 제공, 2년 무상 A/S. 이후에도 상시 유지보수 계약 가능.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALLOUT QUOTE ============ -->
+<section class="callout grain">
+  <svg class="callout-ribbon" viewBox="0 0 900 900" fill="none">
+    <defs>
+      <linearGradient id="cr1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#2C4AA0"/>
+        <stop offset=".5" stop-color="#5B4E96"/>
+        <stop offset="1" stop-color="#E85D2C"/>
+      </linearGradient>
+    </defs>
+    <path d="M100 100 Q 500 -100 800 200 T 850 700 Q 500 1000 100 700 Q -100 400 100 100Z" stroke="url(#cr1)" stroke-width="60" fill="none"/>
+  </svg>
+  <div class="wrap">
+    <p class="quote">
+      "한 번의 시공으로 끝나지 않습니다. <br/>
+      <span class="ital">견적, 시공, 준공, A/S</span>까지 ─<br/>
+      <span class="stroke">같은 사람이 끝까지 책임집니다.</span>"
+    </p>
+    <div class="attrib">
+      <div class="av">윤</div>
+      <div class="who">
+        <div class="n">윤OO · 대표</div>
+        <div class="r">CEO · YD IN ELECTRICIAN CO.,LTD.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="block cream grain" id="about">
+  <span class="sec-num l">(04) — WHY YD IN · 회사소개</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>17년의 현장이<br/>증명하는 <span class="ital">한 가지.</span></h2>
+      <p class="sub l">다음 한 줄로 요약됩니다 — "같은 사람이 끝까지 한다." 그 단순함을 지키기 위해 우리가 운영하는 네 가지 약속입니다.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-img">
+        <div class="ph">
+          <div class="l">— JOBSITE PHOTO</div>
+          <div class="v">현장 사진<br/>자리</div>
+        </div>
+        <div class="corner">
+          <span>YDIN / SITE 0214<br/>BUSAN INDUSTRIAL ZONE</span>
+          <span class="badge">실제 사진 교체 예정</span>
+        </div>
+      </div>
+
+      <div class="why-list">
+        <div class="why-row">
+          <div class="n">01</div>
+          <div>
+            <h5>면허·인증을 갖춘 정식 시공사</h5>
+            <p>전기공사업 등록, 산업안전보건 인증을 보유한 정식 시공사. 모든 공사는 법정 절차에 따라 진행되며, 준공 후 인증서·도면 일체를 제공합니다.</p>
+            <div class="meta">— 라이선스 No. 23-부산-21130</div>
+          </div>
+        </div>
+        <div class="why-row">
+          <div class="n">02</div>
+          <div>
+            <h5>안전관리자 상주, 무사고 1,240일+</h5>
+            <p>모든 현장에 안전관리자가 상주하며, 일일 점검·KPI 체크리스트를 운영합니다. 작은 공사도 같은 기준으로.</p>
+            <div class="meta">— ZERO INCIDENT SINCE 2022.07</div>
+          </div>
+        </div>
+        <div class="why-row">
+          <div class="n">03</div>
+          <div>
+            <h5>24시간 긴급 출동 (부산권)</h5>
+            <p>정전·누전·단락 사고 발생 시 부산 전역 1시간 이내 출동. 야간·휴일 동일 대응. 거래처는 우선 응답합니다.</p>
+            <div class="meta">— EMERGENCY · 051-895-5505</div>
+          </div>
+        </div>
+        <div class="why-row">
+          <div class="n">04</div>
+          <div>
+            <h5>준공 후 2년 무상 A/S</h5>
+            <p>시공 결과물에 대한 2년 무상 A/S, 이후에도 상시 유지보수 계약으로 안정적인 전력 운영을 지원합니다.</p>
+            <div class="meta">— 2-YEAR WARRANTY · LIFE-LONG SUPPORT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="block cream-2 grain" id="projects">
+  <span class="sec-num l">(05) — RECENT WORK · 시공실적</span>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>최근 <span class="ital">시공 실적.</span></h2>
+      <p class="sub l">2024–2026년 진행한 대표 프로젝트 일부입니다. 전체 시공 포트폴리오 및 도면 자료는 견적 문의 시 별도 제공해 드립니다.</p>
+    </div>
+
+    <div class="proj-grid">
+      <div class="proj p1">
+        <div class="img dark-img" data-label="[ 사상 산단 변전실 · 22.9kV ]"></div>
+        <span class="badge-cat">산업</span>
+        <div class="meta">
+          <div>
+            <h6>사상 산단 K공장 변전실 증설</h6>
+            <div class="tags">22.9kV 수전 · MCC · 동력</div>
+          </div>
+          <div class="yr">2025</div>
+        </div>
+      </div>
+      <div class="proj p2">
+        <div class="img" data-label="[ 옥상 태양광 480kW ]"></div>
+        <span class="badge-cat">태양광</span>
+        <div class="meta">
+          <div>
+            <h6>해운대 물류센터<br/>옥상 태양광 480kW</h6>
+            <div class="tags">자가소비형 · 한전계통연계</div>
+          </div>
+          <div class="yr">2025</div>
+        </div>
+      </div>
+      <div class="proj p3">
+        <div class="img" data-label="[ 한전 지중인입 ]"></div>
+        <span class="badge-cat">외선</span>
+        <div class="meta">
+          <div>
+            <h6>가야동 근린상가<br/>한전 인입공사</h6>
+            <div class="tags">외선 · 지중인입</div>
+          </div>
+          <div class="yr">2024</div>
+        </div>
+      </div>
+      <div class="proj p4">
+        <div class="img dark-img" data-label="[ 오피스 전관 분전반 ]"></div>
+        <span class="badge-cat">내선</span>
+        <div class="meta">
+          <div>
+            <h6>서면 오피스빌딩<br/>전관 내선 리모델</h6>
+            <div class="tags">분전반 교체 · 배선</div>
+          </div>
+          <div class="yr">2024</div>
+        </div>
+      </div>
+      <div class="proj p5">
+        <div class="img" data-label="[ 공장 동력 + 접지 ]"></div>
+        <span class="badge-cat">산업</span>
+        <div class="meta">
+          <div>
+            <h6>강서 공단 동력 배선<br/>+ 접지 시공</h6>
+            <div class="tags">산업 · 동력 · 접지</div>
+          </div>
+          <div class="yr">2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact dark grain" id="contact">
+  <svg style="position:absolute;left:-200px;top:-100px;width:800px;height:800px;opacity:.12;pointer-events:none" viewBox="0 0 800 800" fill="none">
+    <defs>
+      <linearGradient id="contactRib" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#2C4AA0"/>
+        <stop offset=".5" stop-color="#5B4E96"/>
+        <stop offset="1" stop-color="#E85D2C"/>
+      </linearGradient>
+    </defs>
+    <path d="M100 100 Q 500 -100 700 200 T 750 700" stroke="url(#contactRib)" stroke-width="50" fill="none" stroke-linecap="round"/>
+  </svg>
+  <span class="sec-num d">(06) — CONTACT · 견적문의</span>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>
+          현장이<br/>
+          <span class="ital o">준비되었다면,</span><br/>
+          <span class="stroke">우리가 갑니다.</span>
+        </h2>
+        <div class="contact-meta">
+          <div class="row">
+            <div class="k">대표전화 · CALL</div>
+            <div class="v big">051-895-5505</div>
+          </div>
+          <div class="row">
+            <div class="k">이메일 · EMAIL</div>
+            <div class="v">ydin@ydin.co.kr<br/>quote@ydin.co.kr</div>
+          </div>
+          <div class="row">
+            <div class="k">주소 · ADDRESS</div>
+            <div class="v">부산광역시 부산진구<br/>가야대로408번길 27</div>
+          </div>
+          <div class="row">
+            <div class="k">운영시간 · HOURS</div>
+            <div class="v">평일 08:30 – 18:30<br/>긴급출동 24/7 (부산권)</div>
+          </div>
+          <div class="row" style="grid-column:1/-1">
+            <div class="k">사업자 · BUSINESS REG.</div>
+            <div class="v">123-45-67890 &nbsp;·&nbsp; 전기공사업 면허 23-부산-21130 &nbsp;·&nbsp; 산업안전보건 인증</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="form" onsubmit="event.preventDefault(); alert('견적 문의가 접수되었습니다. (데모)')">
+        <h3>견적 문의</h3>
+        <div class="fsub">— FREE ESTIMATE / 24H RESPONSE</div>
+
+        <div class="frow">
+          <label>공사 종류 · Service Type</label>
+          <div class="chips">
+            <span class="chip on">내선</span>
+            <span class="chip">외선</span>
+            <span class="chip">산업</span>
+            <span class="chip">태양광</span>
+            <span class="chip">유지보수</span>
+            <span class="chip">긴급출동</span>
+          </div>
+        </div>
+        <div class="frow"><label>성함 · Name</label><input placeholder="홍길동" /></div>
+        <div class="frow"><label>연락처 · Phone</label><input placeholder="010-0000-0000" /></div>
+        <div class="frow"><label>현장 주소 · Site Address</label><input placeholder="부산광역시 ..." /></div>
+        <div class="frow"><label>요청 내용 · Notes</label><textarea placeholder="공사 규모, 일정, 도면 유무 등을 자유롭게 적어주세요."></textarea></div>
+        <button class="submit">
+          견적 요청 보내기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="#" class="logo" style="margin-bottom:24px">
+          <span class="mark">
+            <svg viewBox="0 0 56 56" fill="none">
+              <rect x="1" y="1" width="54" height="54" rx="12" fill="#1A1411" stroke="rgba(241,232,216,.14)"/>
+              <defs>
+                <linearGradient id="ny2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#2C4AA0"/>
+                  <stop offset=".5" stop-color="#5B4E96"/>
+                  <stop offset="1" stop-color="#E85D2C"/>
+                </linearGradient>
+              </defs>
+              <path d="M11 14 L21 28 L21 42" stroke="url(#ny2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 28 L31 14" stroke="url(#ny2)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M31 17 a10 10 0 0 1 0 22" stroke="#E85D2C" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <circle cx="42" cy="15" r="2.6" fill="#E85D2C"/>
+            </svg>
+          </span>
+          <span class="name">
+            <span class="ko" style="color:var(--paper)">(주)와이디인</span>
+            <span class="en">YD IN ELECTRICIAN CO.,LTD.</span>
+          </span>
+        </a>
+        <p style="font-size:13.5px;color:rgba(241,232,216,.7);line-height:1.65;max-width:320px">
+          전기로 연결되는 모든 현장의 안전한 시공 ─ 부산을 거점으로 17년, (주)와이디인.
+        </p>
+      </div>
+      <div>
+        <h6>사업영역 · Services</h6>
+        <a href="#">내선 전기공사</a>
+        <a href="#">외선 전기공사</a>
+        <a href="#">산업 전기설비</a>
+        <a href="#">태양광 발전</a>
+      </div>
+      <div>
+        <h6>회사 · Company</h6>
+        <a href="#">회사소개</a>
+        <a href="#">시공실적</a>
+        <a href="#">인증 / 면허</a>
+        <a href="#">채용</a>
+      </div>
+      <div>
+        <h6>연락 · Contact</h6>
+        <a href="tel:0518955505">051-895-5505</a>
+        <a href="mailto:ydin@ydin.co.kr">ydin@ydin.co.kr</a>
+        <p>부산진구 가야대로408번길 27</p>
+        <p>평일 08:30 – 18:30</p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 YD IN ELECTRICIAN CO., LTD.</span>
+      <span>면허 23-부산-21130 · 사업자 123-45-67890</span>
+      <span>SITE — ORIGINAL DESIGN / 2026</span>
+    </div>
+  </div>
+
+  <!-- big brand word -->
+  <div class="mega">
+    <div class="word">YDI<span class="o">N</span></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', e => {
+    e.currentTarget.classList.toggle('on');
+  }));
+</script>
+</body>
+</html>
