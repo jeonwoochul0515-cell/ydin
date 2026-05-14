@@ -1,4 +1,4 @@
-// (주)와이디인 원페이지 홈페이지 루트 컴포넌트
+// (주)와이디인 원페이지 홈페이지 루트 — 다크 베이스
 import { Header } from "./sections/Header";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
@@ -9,7 +9,7 @@ import { Footer } from "./sections/Footer";
 
 export function App() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen text-[var(--color-text)]">
       <Header />
       <main>
         <Hero />

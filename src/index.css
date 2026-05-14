@@ -1,16 +1,29 @@
-/* 전역 스타일 — Tailwind v4 + Pretendard 웹폰트 + 부드러운 스크롤 */
+/* 전역 스타일 — 다크 베이스 + 로고 그라데이션 톤 (cyan → violet → orange → red) */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #0f172a;
-  --color-accent: #facc15;
+  --color-bg: #07070d;
+  --color-bg-elev: #0d0d18;
+  --color-bg-card: #11111e;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.14);
+  --color-text: #f4f4f7;
+  --color-text-muted: rgba(244, 244, 247, 0.62);
+  --color-text-faint: rgba(244, 244, 247, 0.42);
+
+  --grad-cyan: #22d3ee;
+  --grad-blue: #3b82f6;
+  --grad-violet: #a855f7;
+  --grad-orange: #fb923c;
+  --grad-red: #ef4444;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    background: var(--color-bg);
   }
 
   body {
@@ -18,9 +31,141 @@
       "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
       system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
       "Noto Sans KR", "Malgun Gothic", sans-serif;
-    color: #0f172a;
-    background: #ffffff;
+    color: var(--color-text);
+    background:
+      radial-gradient(
+        1200px 600px at 80% -10%,
+        rgba(34, 211, 238, 0.08),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 500px at -10% 30%,
+        rgba(168, 85, 247, 0.07),
+        transparent 60%
+      ),
+      radial-gradient(
+        1100px 700px at 50% 110%,
+        rgba(251, 146, 60, 0.07),
+        transparent 60%
+      ),
+      var(--color-bg);
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(168, 85, 247, 0.35);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .text-grad-logo {
+    background: linear-gradient(
+      90deg,
+      var(--grad-cyan) 0%,
+      var(--grad-blue) 28%,
+      var(--grad-violet) 55%,
+      var(--grad-orange) 82%,
+      var(--grad-red) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-grad-warm {
+    background: linear-gradient(
+      90deg,
+      var(--grad-orange) 0%,
+      var(--grad-red) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-grad-cool {
+    background: linear-gradient(
+      90deg,
+      var(--grad-cyan) 0%,
+      var(--grad-blue) 60%,
+      var(--grad-violet) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-grad-logo {
+    background: linear-gradient(
+      135deg,
+      var(--grad-cyan) 0%,
+      var(--grad-blue) 28%,
+      var(--grad-violet) 55%,
+      var(--grad-orange) 82%,
+      var(--grad-red) 100%
+    );
+  }
+
+  .bg-grad-warm {
+    background: linear-gradient(
+      135deg,
+      var(--grad-orange) 0%,
+      var(--grad-red) 100%
+    );
+  }
+
+  .bg-grad-cool {
+    background: linear-gradient(
+      135deg,
+      var(--grad-cyan) 0%,
+      var(--grad-blue) 60%,
+      var(--grad-violet) 100%
+    );
+  }
+
+  .ring-grad {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .ring-grad::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(34, 211, 238, 0.55),
+      rgba(168, 85, 247, 0.45),
+      rgba(251, 146, 60, 0.55)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .ring-grad:hover::before {
+    opacity: 1;
+  }
+
+  .glow-cool {
+    box-shadow:
+      0 0 0 1px rgba(59, 130, 246, 0.25),
+      0 20px 70px -20px rgba(59, 130, 246, 0.45);
+  }
+
+  .glow-warm {
+    box-shadow:
+      0 0 0 1px rgba(251, 146, 60, 0.25),
+      0 20px 70px -20px rgba(239, 68, 68, 0.45);
   }
 }
