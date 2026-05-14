@@ -25,3 +25,11 @@ pnpm-debug.log*
 
 # Build artifacts
 *.tsbuildinfo
+
+# Claude Code local settings
+.claude/
+
+# Original source images (logo and 명함은 src/public 으로 옮겨져 있음)
+/image.png
+/image copy.png
+
