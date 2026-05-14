@@ -87,7 +87,17 @@
 - `copywriting.md` — 카피라이팅 안 (Phase 2)
 - `post-launch.md` — 배포 후 운영 안내(네이버 플레이스 등록, ECIC 등록 등)
 
-## 7. 미해결 이슈 / 사용자 의사결정 대기
+## 8. 디자인 시스템 — Claude Design YDIN Redesign v2 채택 (2026-05-14 갱신)
+
+- 사용자가 Claude Design(claude.ai/design) 핸드오프 번들을 제공하여 v2 디자인으로 전환.
+- 베이스 컬러는 검정 다크 → **웜 크림(#F1E8D8)** + 다크 잉크 섹션 교차 + 오렌지(#E85D2C) 강조 + 인디고/퍼플 리본.
+- 폰트 시스템은 Pretendard → **Black Han Sans (display 한글) / Archivo Black (display 영문) / Gowun Batang (italic serif 한글) / JetBrains Mono (라벨) / Noto Sans KR (본문)** 5종 Google Fonts 조합.
+- 섹션 구조를 디자인의 12개로 재구성. 각 섹션은 `src/sections/`에 분리.
+- 데이터 처리 원칙은 **사실 일치성 우선**. 디자인 mock의 가짜 데이터(설립 2008, 사업자 123-45-67890, 면허 23-부산-21130, CEO 윤OO, 312건/1240일+/2.8MW)는 모두 실제 회사 정보로 교체. 신생업체 톤에 맞춰 검증 가능한 지표만 노출.
+- 사업영역 4종은 사용자 결정대로 전기공사·전기자재·조명·실내건축 유지(디자인의 내선/외선/산업/태양광 폐기).
+- `design-fetch/` 핸드오프 번들은 `.gitignore` 처리.
+
+## 9. 미해결 이슈 / 사용자 의사결정 대기
 
 1. Tailwind CSS 사용 동의 (G1)
 2. Vercel 배포 동의 (G2)

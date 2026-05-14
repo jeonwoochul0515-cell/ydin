@@ -1,5 +1,6 @@
-// 견적 문의 섹션 — 회사 정보 + chip 폼 (mailto 전송)
+// 견적 문의 섹션 — 회사 정보 + 위치 지도 + chip 폼 (mailto 전송)
 import { useState, type FormEvent } from "react";
+import locationMap from "../assets/pptx/location-map.png";
 
 const CHIPS = ["전기공사", "전기자재", "조명", "실내건축", "유지보수", "기타"];
 
@@ -65,7 +66,7 @@ export function Contact() {
           strokeLinecap="round"
         />
       </svg>
-      <span className="sec-num d">(06) — CONTACT · 견적문의</span>
+      <span className="sec-num d">(10) — CONTACT · 견적문의</span>
       <div className="wrap">
         <div className="contact-grid">
           <div>
@@ -122,6 +123,20 @@ export function Contact() {
                 </div>
               </div>
             </div>
+
+            <a
+              href="https://map.kakao.com/?q=부산광역시 부산진구 가야대로408번길 27"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="map-card"
+              aria-label="회사 위치 지도 열기"
+            >
+              <img src={locationMap} alt="(주)와이디인 회사 위치 지도" />
+              <div className="map-cap">
+                <span className="k">LOCATION · 회사 위치도</span>
+                <span className="v">부산진구 가야대로408번길 27 (개금동) 1층</span>
+              </div>
+            </a>
           </div>
 
           <form className="form" onSubmit={onSubmit}>

@@ -36,3 +36,7 @@ pnpm-debug.log*
 # Claude Design 핸드오프 번들 (작업 참조용)
 /design-fetch/
 
+# 원본 지명원 PPTX (이미지·텍스트는 src/assets/pptx/ 와 섹션 컴포넌트로 반영됨)
+/*.pptx
+/~$*.pptx
+

@@ -1,10 +1,12 @@
-// 회사소개 (Why YDIN) — 네 가지 약속 + 현장 사진 placeholder
+// 회사소개 (Why YDIN) — 네 가지 약속 + 현장 사진
+import skyline from "../assets/pptx/skyline.jpg";
+
 const ROWS = [
   {
     n: "01",
     h: "정식 전기공사업 등록 시공사",
-    p: "전기공사업 등록을 갖춘 정식 시공사. 모든 공사는 법정 절차에 따라 진행되며, 준공 후 도면·내역 일체를 제공합니다.",
-    meta: "— 면허번호는 견적 시 확인 가능",
+    p: "전기공사업 등록(제 부산-02201호)·전기공사협회 가입 정식 시공사. 모든 공사는 법정 절차에 따라 진행되며, 준공 후 도면·내역 일체를 제공합니다.",
+    meta: "— 등록번호 부산-02201호 · 2022.12 등록",
   },
   {
     n: "02",
@@ -29,7 +31,7 @@ const ROWS = [
 export function Why() {
   return (
     <section className="block cream grain" id="about">
-      <span className="sec-num l">(04) — WHY YD IN · 회사소개</span>
+      <span className="sec-num l">(04) — WHY YD IN · 회사 약속</span>
       <div className="wrap">
         <div className="sec-head">
           <h2>
@@ -44,21 +46,33 @@ export function Why() {
 
         <div className="why-grid">
           <div className="why-img">
-            <div className="ph">
-              <div className="l">— JOBSITE PHOTO</div>
-              <div className="v">
-                현장 사진
-                <br />
-                자리
-              </div>
-            </div>
+            <img
+              src={skyline}
+              alt="부산 빌딩 스카이라인"
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                filter: "saturate(.95) contrast(1.05)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(180deg, rgba(15,11,9,0) 35%, rgba(15,11,9,.7) 100%)",
+              }}
+            />
             <div className="corner">
               <span>
-                YDIN / SITE 0001
+                YDIN / SCOPE
                 <br />
                 BUSAN BUSANJIN-GU
               </span>
-              <span className="badge">실제 사진 교체 예정</span>
+              <span className="badge">전기 + 실내건축 통합</span>
             </div>
           </div>
 
